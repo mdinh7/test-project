@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple Polylines</title>
+    <link rel="stylesheet" type="text/css" href="sample.css">
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // This example creates a 2-pixel-wide red polyline showing the path of
+      // the first trans-Pacific flight between Oakland, CA, and Brisbane,
+      // Australia which was made by Charles Kingsford Smith.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: {lat: 32.997019, lng: -117.269833},
+        mapTypeId: 'terrain'
+      });
+  
+     var fiberLineCoordinates = [
+      {lat: 32.991952, lng: -117.271095},
+      {lat: 32.992105, lng: -117.270387},
+      {lat: 32.992312, lng: -117.269518},
+      {lat: 32.993914, lng: -117.269872},
+      {lat: 32.996749, lng: -117.270540},
+      {lat: 33.000186, lng: -117.271495},
+      {lat: 33.000303, lng: -117.268545},
+      {lat: 33.003290, lng: -117.269425},
+      {lat: 33.000474, lng: -117.269586}
+    ];
+
+    var fiberLine = new google.maps.Polyline({
+      path: fiberLineCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    });
+  
+    fiberLine.setMap(map);
+  }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd0vuEiBR4dvlP_UbghJEuOCpxda4veg4&callback=initMap">
+    </script>
+  </body>
+</html>
