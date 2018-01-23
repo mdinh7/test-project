@@ -1,6 +1,17 @@
 function initMap() {
+    var service = new google.maps.places.PlacesService(map);
+    
+    service.getDetails({
+        placeId: 'ChIJ31YvmNQO3IAR1W1v-x9aUYc'
+      }, function(place, status){
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+            console.log(place.geometry.location)
+        }
+    });
+
+
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
+      zoom: 16,
       center: {lat: 32.997019, lng: -117.269833},
       mapTypeId: 'terrain'
     });
